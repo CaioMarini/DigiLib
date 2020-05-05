@@ -34,7 +34,7 @@ class TelaInformacao extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       child: Text(
-                        " O tema da DigLib é a criação de uma biblioteca online",
+                        " O tema da DigiLib é a criação de uma biblioteca online",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.black,
