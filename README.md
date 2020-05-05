@@ -1,4 +1,4 @@
-# app_livraria
+DigiLib
 
 A new Flutter project.
 
