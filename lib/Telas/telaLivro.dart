@@ -21,10 +21,11 @@ class TelaLivro extends StatelessWidget {
           IconButton(
             icon: Icon(
               Icons.search,
-              color: Colors.black,
+              color: Colors.white,
             ),
             onPressed: () {
               // do something
+              Navigator.pushNamed(context, "/tela1");
             },
           )
         ],
@@ -116,15 +117,17 @@ class TelaLivro extends StatelessWidget {
                     ),
                   ],
                 ),
+                const SizedBox(height: 10),
                 RaisedButton(
+                  color: Colors.blueGrey,
                   child: Text(
                     "Ler",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.black,
-                      height: 1,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold),
+                        color: Colors.white,
+                        height: 1,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold),
                   ),
                   onPressed: () {
                     Navigator.pushNamed(context, "/tela3");

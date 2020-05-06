@@ -5,17 +5,26 @@ class TelaInformacao extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          //backgroundColor: Colors.cyanAccent,
+          backgroundColor: Colors.grey[200],
           //leading: Icon(Icons.favorite),
           centerTitle: true,
           title: Text(
             "DigiLib",
+            style: TextStyle(
+                color: Colors.black,
+                height: 1,
+                fontSize: 33,
+                fontWeight: FontWeight.bold),
           ),
           leading: IconButton(
             tooltip: 'Retornar ao Menu',
             icon: const Icon(Icons.arrow_back),
+            color: Colors.blue[600],
             onPressed: () {
               //colocar aqui o retonrno para o menu
+              Navigator.pop(
+                context,
+              );
             },
           ),
         ),
