@@ -6,7 +6,18 @@ class TelaInformacao extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           //backgroundColor: Colors.cyanAccent,
-          title: Text("Informações"),
+          //leading: Icon(Icons.favorite),
+          centerTitle: true,
+          title: Text(
+            "Informações",
+          ),
+          leading: IconButton(
+            tooltip: 'Retornar ao Menu',
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              //colocar aqui o retonrno para o menu
+            },
+          ),
         ),
         body: SingleChildScrollView(
           //padding: EdgeInsets.all(10.0),
@@ -76,49 +87,47 @@ class TelaInformacao extends StatelessWidget {
                     ),
                   ],
                 ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(
-                        "Dev A",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.black,
-                            height: 2,
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold),
+                Padding(
+                  padding: const EdgeInsets.all(1.0),
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          "Dev A",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black,
+                              height: 2,
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Image.asset("assets/imagens/dev.jpg"),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(
-                        "Dev B",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.black,
-                            height: 2,
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold),
+                      Expanded(
+                        child: Image.asset("assets/imagens/dev.jpg"),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Image.asset("assets/imagens/dev.jpg"),
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.all(1.0),
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          "Dev A",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black,
+                              height: 2,
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Expanded(
+                        child: Image.asset("assets/imagens/dev.jpg"),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
