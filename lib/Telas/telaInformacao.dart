@@ -9,7 +9,7 @@ class TelaInformacao extends StatelessWidget {
           //leading: Icon(Icons.favorite),
           centerTitle: true,
           title: Text(
-            "Informações",
+            "DigiLib",
           ),
           leading: IconButton(
             tooltip: 'Retornar ao Menu',
