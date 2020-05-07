@@ -22,8 +22,14 @@ class TelaInicial extends StatelessWidget {
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.message),
-                title: Text("Livro"),
+                leading: Icon(Icons.explore),
+                title: Text(
+                  "Aventura",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                  ),
+                ),
                 onTap: () {
                   Navigator.pop(
                       context); //fecha o drawer,assim quando for para a proxima tela e retornar dela, o drawer fica fechado
@@ -31,36 +37,75 @@ class TelaInicial extends StatelessWidget {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.people),
-                title: Text("Informações"),
+                leading: Icon(Icons.sentiment_very_satisfied),
+                title: Text(
+                  "Comédia",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                  ),
+                ),
                 onTap: () {
                   Navigator.pop(context);
-                  Navigator.pushNamed(context, "/telaInfo");
+                  Navigator.pushNamed(context, "/telaLivro");
                 },
               ),
               ListTile(
-                leading: Icon(Icons.message),
-                title: Text("Aventura"),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.pushNamed(context, "/telaLivro");
-                },
-              ),ListTile(
-                leading: Icon(Icons.message),
-                title: Text("Ação"),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.pushNamed(context, "/telaLivro");
-                },
-              ),ListTile(
-                leading: Icon(Icons.message),
-                title: Text("Drama"),
+                leading: Icon(Icons.movie_filter),
+                title: Text(
+                  "Drama",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                  ),
+                ),
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.pushNamed(context, "/telaLeitura");
                 },
               ),
-
+              ListTile(
+                leading: Icon(Icons.favorite_border),
+                title: Text(
+                  "Romance",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, "/telaLivro");
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.sentiment_very_dissatisfied),
+                title: Text(
+                  "Terror",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, "/telaLivro");
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.info_outline),
+                title: Text(
+                  "Informações",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, "/telaInfo");
+                },
+              ),
             ],
           ),
         ),
@@ -68,11 +113,7 @@ class TelaInicial extends StatelessWidget {
           //padding: EdgeInsets.all(10.0),
           padding: EdgeInsets.fromLTRB(
               20 /*left*/, 0.5 /*top*/, 18 /*right*/, 5 /*bottom*/),
-          child: Center(
-            
-
-
-          ),
+          child: Center(),
         ));
   }
 }
