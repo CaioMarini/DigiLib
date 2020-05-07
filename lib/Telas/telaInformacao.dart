@@ -5,7 +5,7 @@ class TelaInformacao extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.grey[200],
+          backgroundColor: Colors.blueGrey,
           //leading: Icon(Icons.favorite),
           centerTitle: true,
           title: Text(
@@ -141,6 +141,7 @@ class TelaInformacao extends StatelessWidget {
               ],
             ),
           ),
-        ));
+        )
+        );
   }
 }

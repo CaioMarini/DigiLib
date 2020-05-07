@@ -14,7 +14,7 @@ class TelaLivro extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
             //colocar aqui o retonrno para a tela anterior
-            //Navigator.pop( context, ); //fazndo o pop volta para a tela que estava
+            Navigator.pop( context, ); //fazndo o pop volta para a tela que estava
           },
         ),
         actions: <Widget>[
@@ -25,7 +25,7 @@ class TelaLivro extends StatelessWidget {
             ),
             onPressed: () {
               // do something
-              Navigator.pushNamed(context, "/tela1");
+              Navigator.pushNamed(context, "/telaInfo");
             },
           )
         ],
@@ -130,7 +130,7 @@ class TelaLivro extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, "/tela3");
+                    Navigator.pushNamed(context, "/telaLeitura");
                     //Navigator.pop( context, );
                   },
                 ),
