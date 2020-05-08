@@ -1,4 +1,24 @@
+import 'package:app_livraria/Telas/telaLivro.dart';
 import "package:flutter/material.dart";
+
+Container Aventura(String imagemVal, String titulo, String autor) {
+  return Container(
+    width: 160.0,
+    color: Colors.white,
+    child: Card(
+      child: Wrap(
+        children: <Widget>[
+          Image.asset(imagemVal),
+          ListTile(
+            title: Text(titulo),
+            subtitle: Text(autor),
+            onTap: () {},
+          )
+        ],
+      ),
+    ),
+  );
+}
 
 class TelaInicial extends StatelessWidget {
   @override
@@ -110,10 +130,505 @@ class TelaInicial extends StatelessWidget {
           ),
         ),
         body: SingleChildScrollView(
-          //padding: EdgeInsets.all(10.0),
-          padding: EdgeInsets.fromLTRB(
-              20 /*left*/, 0.5 /*top*/, 18 /*right*/, 5 /*bottom*/),
-          child: Center(),
+          child: Column(
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 20.0),
+                height: 300.0,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 20.0),
+                height: 300.0,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 20.0),
+                height: 300.0,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 20.0),
+                height: 300.0,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 20.0),
+                height: 300.0,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ));
   }
 }
