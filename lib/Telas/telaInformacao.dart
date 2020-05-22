@@ -11,7 +11,7 @@ class TelaInformacao extends StatelessWidget {
           title: Text(
             "DigiLib",
             style: TextStyle(
-                color: Colors.black,
+                color: Colors.white,
                 height: 1,
                 fontSize: 33,
                 fontWeight: FontWeight.bold),
@@ -19,7 +19,7 @@ class TelaInformacao extends StatelessWidget {
           leading: IconButton(
             tooltip: 'Retornar ao Menu',
             icon: const Icon(Icons.arrow_back),
-            color: Colors.blue[600],
+            color: Colors.white,
             onPressed: () {
               //colocar aqui o retonrno para o menu
               Navigator.pop(

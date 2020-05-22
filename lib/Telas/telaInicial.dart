@@ -1,6 +1,6 @@
-import 'package:app_livraria/Telas/telaLivro.dart';
-import "package:flutter/material.dart";
 
+import "package:flutter/material.dart";
+/*
 Container Aventura(String imagemVal, String titulo, String autor) {
   return Container(
     width: 160.0,
@@ -19,7 +19,7 @@ Container Aventura(String imagemVal, String titulo, String autor) {
     ),
   );
 }
-
+*/
 class TelaInicial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
