@@ -1,31 +1,20 @@
-
 import "package:flutter/material.dart";
-/*
-Container Aventura(String imagemVal, String titulo, String autor) {
-  return Container(
-    width: 160.0,
-    color: Colors.white,
-    child: Card(
-      child: Wrap(
-        children: <Widget>[
-          Image.asset(imagemVal),
-          ListTile(
-            title: Text(titulo),
-            subtitle: Text(autor),
-            onTap: () {},
-          )
-        ],
-      ),
-    ),
-  );
-}
-*/
+
 class TelaInicial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("DigiLibi"),
+          backgroundColor: Colors.blueGrey,
+          centerTitle: true,
+          title: Text(
+            "DigiLib",
+            style: TextStyle(
+                color: Colors.white,
+                height: 1,
+                fontSize: 27,
+                fontWeight: FontWeight.bold),
+          ),
         ),
         drawer: Drawer(
           child: ListView(
@@ -47,7 +36,7 @@ class TelaInicial extends StatelessWidget {
                   "Aventura",
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 25,
                   ),
                 ),
                 onTap: () {
@@ -62,7 +51,7 @@ class TelaInicial extends StatelessWidget {
                   "Comédia",
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 25,
                   ),
                 ),
                 onTap: () {
@@ -76,7 +65,7 @@ class TelaInicial extends StatelessWidget {
                   "Drama",
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 25,
                   ),
                 ),
                 onTap: () {
@@ -90,7 +79,7 @@ class TelaInicial extends StatelessWidget {
                   "Romance",
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 25,
                   ),
                 ),
                 onTap: () {
@@ -104,7 +93,7 @@ class TelaInicial extends StatelessWidget {
                   "Terror",
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 25,
                   ),
                 ),
                 onTap: () {
@@ -118,7 +107,7 @@ class TelaInicial extends StatelessWidget {
                   "Informações",
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 25,
                   ),
                 ),
                 onTap: () {
@@ -132,8 +121,17 @@ class TelaInicial extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
+              Text(
+                "Aventura",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    color: Colors.black,
+                    height: 2,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
+              ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 20.0),
+                margin: EdgeInsets.symmetric(vertical: 1.0),
                 height: 300.0,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
@@ -231,8 +229,17 @@ class TelaInicial extends StatelessWidget {
                   ],
                 ),
               ),
+              Text(
+                "Comédia",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    color: Colors.black,
+                    height: 2,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
+              ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 20.0),
+                margin: EdgeInsets.symmetric(vertical: 1.0),
                 height: 300.0,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
@@ -330,8 +337,17 @@ class TelaInicial extends StatelessWidget {
                   ],
                 ),
               ),
+              Text(
+                "Drama",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    color: Colors.black,
+                    height: 2,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
+              ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 20.0),
+                margin: EdgeInsets.symmetric(vertical: 1.0),
                 height: 300.0,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
@@ -429,8 +445,17 @@ class TelaInicial extends StatelessWidget {
                   ],
                 ),
               ),
+              Text(
+                "Romance",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    color: Colors.black,
+                    height: 2,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
+              ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 20.0),
+                margin: EdgeInsets.symmetric(vertical: 1.0),
                 height: 300.0,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
@@ -528,8 +553,17 @@ class TelaInicial extends StatelessWidget {
                   ],
                 ),
               ),
+              Text(
+                "Terror",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    color: Colors.black,
+                    height: 2,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
+              ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 20.0),
+                margin: EdgeInsets.symmetric(vertical:1.0),
                 height: 300.0,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
