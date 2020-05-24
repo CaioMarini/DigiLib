@@ -6,14 +6,13 @@ class TelaInformacao extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blueGrey,
-          //leading: Icon(Icons.favorite),
           centerTitle: true,
           title: Text(
             "DigiLib",
             style: TextStyle(
                 color: Colors.white,
                 height: 1,
-                fontSize: 33,
+                fontSize: 27,
                 fontWeight: FontWeight.bold),
           ),
           leading: IconButton(
@@ -43,7 +42,7 @@ class TelaInformacao extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.black,
-                            height: 3,
+                            height: 2,
                             fontSize: 36,
                             fontWeight: FontWeight.bold),
                       ),
@@ -102,17 +101,31 @@ class TelaInformacao extends StatelessWidget {
                     children: <Widget>[
                       Expanded(
                         child: Text(
-                          "Dev A",
+                          "Caio   Marini",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.black,
-                              height: 2,
+                              height: 1,
                               fontSize: 36,
                               fontWeight: FontWeight.bold),
                         ),
                       ),
                       Expanded(
-                        child: Image.asset("assets/imagens/dev.jpg"),
+                        child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Colors.white70, width: 2),
+                              borderRadius: BorderRadius.circular(10),
+                              gradient: LinearGradient(
+                                  colors: [Colors.blueGrey[800], Colors.blueGrey],
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.5),
+                              child: Image.asset("assets/imagens/caio.jpg",scale: 1,),
+                            )
+                            ),
                       ),
                     ],
                   ),
@@ -123,17 +136,31 @@ class TelaInformacao extends StatelessWidget {
                     children: <Widget>[
                       Expanded(
                         child: Text(
-                          "Dev A",
+                          "Henrique Colombari",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.black,
-                              height: 2,
+                              height: 1,
                               fontSize: 36,
                               fontWeight: FontWeight.bold),
                         ),
                       ),
                       Expanded(
-                        child: Image.asset("assets/imagens/dev.jpg"),
+                        child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Colors.white70, width: 2),
+                              borderRadius: BorderRadius.circular(10),
+                              gradient: LinearGradient(
+                                  colors: [Colors.blueGrey[800], Colors.blueGrey],
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.5),
+                              child: Image.asset("assets/imagens/henrique.jpg",scale: 1,),
+                            )
+                            ),
                       ),
                     ],
                   ),
@@ -141,7 +168,6 @@ class TelaInformacao extends StatelessWidget {
               ],
             ),
           ),
-        )
-        );
+        ));
   }
 }
