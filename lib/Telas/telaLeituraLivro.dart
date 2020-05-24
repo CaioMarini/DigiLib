@@ -49,9 +49,19 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("DigLib"),
-      ),
+       appBar: AppBar(
+          backgroundColor: Colors.blueGrey,
+          centerTitle: true,
+          title: Text(
+            "DigiLib",
+            style: TextStyle(
+                color: Colors.white,
+                height: 1,
+                fontSize: 27,
+                fontWeight: FontWeight.bold),
+          ),
+          
+        ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -84,9 +94,20 @@ class FullPdfViewerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PDFViewerScaffold(
-        appBar: AppBar(
-          title: Text("DigLib"),
+       /* appBar: AppBar(
+          backgroundColor: Colors.blueGrey,
+          centerTitle: true,
+          title: Text(
+            "DigiLib",
+            style: TextStyle(
+                color: Colors.white,
+                height: 1,
+                fontSize: 27,
+                fontWeight: FontWeight.bold),
+          ),
+          
         ),
+        */
         path: pdfPath);
   }
 }

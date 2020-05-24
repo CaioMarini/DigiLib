@@ -43,6 +43,7 @@ class TelaLivro extends StatelessWidget {
                         child: Container(
                           height: MediaQuery.of(context).size.height / 2.3,
                           width: MediaQuery.of(context).size.width / 2.3,
+                          
                           child: Image.asset("assets/imagens/livro2.jpg"),
                         ),
                       ),
@@ -116,6 +117,7 @@ class TelaLivro extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.pushNamed(context, "/telaLeitura");
+                    
                   },
                 ),
               ],
