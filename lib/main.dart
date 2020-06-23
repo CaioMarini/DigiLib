@@ -1,10 +1,13 @@
 
+//import 'dart:js';
+
 import 'package:app_livraria/Telas/telaLivro.dart';
 import 'package:flutter/material.dart';
-import 'Telas/cadastro.dart';
-import 'Telas/login.dart';
+import 'Telas/telaCadastro.dart';
+import 'Telas/telaLogin.dart';
 import 'Telas/telaInformacao.dart';
 import 'Telas/telaInicial.dart';
+import 'Telas/telaRecomendacao.dart';
 
 import 'Telas/telaLeituraLivro.dart';
 
@@ -18,13 +21,14 @@ void main() {
                 color: Colors.green)), //Cor padrao do texto dos botoes
         primaryColor: Colors.blueGrey, //Cor padrao da aplicacao
       ),
-      initialRoute: "/login",
+      initialRoute: "/telaLogin",
       routes: {
         "/telaInfo": (context) => TelaInformacao(),
         "/telaInicial": (context) => TelaInicial(),
         "/telaLivro" : (context) => TelaLivro(),
         "/telaLeitura": (context) => OpenBooks(),
-        "/login": (context) => Login(),
-        "/cadastro": (context) => Cadastro(),
+        "/telaLogin": (context) => TelaLogin(),
+        "/telaCadastro": (context) => TelaCadastro(),
+        "/telaRecomendacao": (context) => TelaRecomendacao(),
       }));
 }

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "690565407400",
+    "firebase_url": "https://diglib-f9af8.firebaseio.com",
+    "project_id": "diglib-f9af8",
+    "storage_bucket": "diglib-f9af8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690565407400:android:9be54f9a4d376766d3d89d",
+        "android_client_info": {
+          "package_name": "com.example.app_livraria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690565407400-44163a0vq9808nhu3mi75lnf7n9gidi5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6jGThcDKg8PjjetkaMFtlPc9w1AVYK9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690565407400-44163a0vq9808nhu3mi75lnf7n9gidi5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -206,60 +206,212 @@ class _TelaInicialState extends State<TelaInicial> {
                     fontWeight: FontWeight.bold),
               ),
               Container(
-
-
                 margin: EdgeInsets.symmetric(vertical: 1.0),
                 height: 300.0,
-                child: StreamBuilder<QuerySnapshot>(
-
-                    //fonte de dados
-                    stream: db.collection(colecao).snapshots(),
-
-                    //exibição dos dados
-                    builder: (context, snapshot) {
-                      switch (snapshot.connectionState) {
-                        case ConnectionState.none:
-                        case ConnectionState.waiting:
-                          return Center(child: CircularProgressIndicator());
-
-                        default:
-                          //documentos retornados do Firebase
-                          List<DocumentSnapshot> docs = snapshot.data.documents;
-                          return ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              //itemCount: docs.length,
-                              itemCount: 10,
-                              itemBuilder: (context, index) {
-                                return Container(
-                                  width: 160.0,
-                                  color: Colors.white,
-                                  child: Card(
-                                    child: Wrap(children: <Widget>[
-                                       Image.network(listaAven[index].image),
-                                      ListTile(
-                                        title: Text(
-                                          listaAven[index].titulo,
-                                          style: TextStyle(fontSize: 20),
-                                        ),
-                                        subtitle: Text(listaAven[index].autor,
-                                            style: TextStyle(fontSize: 16)),
-                                        onTap: () {
-                                          Navigator.pushNamed(
-                                              context, "/telacadastro",
-                                              arguments: listaAven[index].id);
-                                        },
-                                      ),
-                                    ]),
-                                  ),
-                                );
-                              });
-                      }
-                    }),
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-
-
-
-
+              Text(
+                "Comédia",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    color: Colors.black,
+                    height: 2,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 1.0),
+                height: 300.0,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 160.0,
+                      color: Colors.white,
+                      child: Card(
+                        child: Wrap(
+                          children: <Widget>[
+                            Image.asset("assets/imagens/livro2.jpg"),
+                            ListTile(
+                              title: Text("Harleen"),
+                              subtitle: Text("Autor"),
+                              onTap: () {
+                                Navigator.pushNamed(context, "/telaLivro");
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               Text(
                 "Drama",
                 textAlign: TextAlign.start,
