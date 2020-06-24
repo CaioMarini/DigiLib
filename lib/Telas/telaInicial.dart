@@ -1,6 +1,9 @@
 import 'dart:async';
 
 import 'package:app_livraria/model/Aventura.dart';
+import 'package:app_livraria/model/Drama.dart';
+import 'package:app_livraria/model/Romance.dart';
+import 'package:app_livraria/model/Terror.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import "package:flutter/material.dart";
 
@@ -14,13 +17,23 @@ class TelaInicial extends StatefulWidget {
 class _TelaInicialState extends State<TelaInicial> {
 //Conexão Flutter+Firebase
   final db = Firestore.instance;
+  //final dbD = Firestore.instance;
   final String colecao = "aventura";
+  final String colecaoDrama = "drama";
+  final String colecaoRomance = "romance";
+  final String colecaoTerror = "terror";
 
 //Lista dinâmica para manipulação dos dados
   List<Aventura> listaAven = List();
+  List<Drama> listaDrama = List();
+  List<Romance> listaRomance = List();
+  List<Terror> listaTerror = List();
 
 //Stream para "ouvir" o Firebase
   StreamSubscription<QuerySnapshot> listen;
+  StreamSubscription<QuerySnapshot> listenDrama;
+  StreamSubscription<QuerySnapshot> listenRomance;
+  StreamSubscription<QuerySnapshot> listenTerror;
 
   @override
   void initState() {
@@ -28,6 +41,9 @@ class _TelaInicialState extends State<TelaInicial> {
 
     //Cancelar o listen, caso a coleção esteja vazia
     listen?.cancel();
+    listenDrama?.cancel();
+    listenRomance?.cancel();
+    listenTerror?.cancel();
 
     //retornar dados da coleção e inserir na lista dinamica
     listen = db.collection(colecao).snapshots().listen((res) {
@@ -37,11 +53,39 @@ class _TelaInicialState extends State<TelaInicial> {
             .toList();
       });
     });
+
+    listenDrama = db.collection(colecaoDrama).snapshots().listen((res) {
+      setState(() {
+        listaDrama = res.documents
+            .map((doc) => Drama.fromMap(doc.data, doc.documentID))
+            .toList();
+      });
+    });
+
+    listenRomance = db.collection(colecaoRomance).snapshots().listen((res) {
+      setState(() {
+        listaRomance = res.documents
+            .map((doc) => Romance.fromMap(doc.data, doc.documentID))
+            .toList();
+      });
+    });
+
+    listen = db.collection(colecaoTerror).snapshots().listen((res) {
+      setState(() {
+        listaTerror = res.documents
+            .map((doc) => Terror.fromMap(doc.data, doc.documentID))
+            .toList();
+      });
+    });
   }
 
   @override
   void dispose() {
     listen?.cancel();
+    listenDrama?.cancel();
+    listenRomance?.cancel();
+    listenTerror?.cancel();
+
     super.dispose();
   }
 
@@ -206,8 +250,6 @@ class _TelaInicialState extends State<TelaInicial> {
                     fontWeight: FontWeight.bold),
               ),
               Container(
-
-
                 margin: EdgeInsets.symmetric(vertical: 1.0),
                 height: 300.0,
                 child: StreamBuilder<QuerySnapshot>(
@@ -235,7 +277,7 @@ class _TelaInicialState extends State<TelaInicial> {
                                   color: Colors.white,
                                   child: Card(
                                     child: Wrap(children: <Widget>[
-                                       Image.network(listaAven[index].image),
+                                      Image.network(listaAven[index].image),
                                       ListTile(
                                         title: Text(
                                           listaAven[index].titulo,
@@ -256,10 +298,6 @@ class _TelaInicialState extends State<TelaInicial> {
                       }
                     }),
               ),
-
-
-
-
               Text(
                 "Drama",
                 textAlign: TextAlign.start,
@@ -272,101 +310,51 @@ class _TelaInicialState extends State<TelaInicial> {
               Container(
                 margin: EdgeInsets.symmetric(vertical: 1.0),
                 height: 300.0,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                child: StreamBuilder<QuerySnapshot>(
+
+                    //fonte de dados
+                    stream: db.collection(colecaoDrama).snapshots(),
+
+                    //exibição dos dados
+                    builder: (context, snapshot) {
+                      switch (snapshot.connectionState) {
+                        case ConnectionState.none:
+                        case ConnectionState.waiting:
+                          return Center(child: CircularProgressIndicator());
+
+                        default:
+                          //documentos retornados do Firebase
+                          List<DocumentSnapshot> docs = snapshot.data.documents;
+                          return ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              //itemCount: docs.length,
+                              itemCount: 10,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  width: 160.0,
+                                  color: Colors.white,
+                                  child: Card(
+                                    child: Wrap(children: <Widget>[
+                                      Image.network(listaDrama[index].image),
+                                      ListTile(
+                                        title: Text(
+                                          listaDrama[index].titulo,
+                                          style: TextStyle(fontSize: 20),
+                                        ),
+                                        subtitle: Text(listaDrama[index].autor,
+                                            style: TextStyle(fontSize: 16)),
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, "/telacadastro",
+                                              arguments: listaDrama[index].id);
+                                        },
+                                      ),
+                                    ]),
+                                  ),
+                                );
+                              });
+                      }
+                    }),
               ),
               Text(
                 "Romance",
@@ -380,101 +368,52 @@ class _TelaInicialState extends State<TelaInicial> {
               Container(
                 margin: EdgeInsets.symmetric(vertical: 1.0),
                 height: 300.0,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                child: StreamBuilder<QuerySnapshot>(
+
+                    //fonte de dados
+                    stream: db.collection(colecaoRomance).snapshots(),
+
+                    //exibição dos dados
+                    builder: (context, snapshot) {
+                      switch (snapshot.connectionState) {
+                        case ConnectionState.none:
+                        case ConnectionState.waiting:
+                          return Center(child: CircularProgressIndicator());
+
+                        default:
+                          //documentos retornados do Firebase
+                          List<DocumentSnapshot> docs = snapshot.data.documents;
+                          return ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              //itemCount: docs.length,
+                              itemCount: 10,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  width: 160.0,
+                                  color: Colors.white,
+                                  child: Card(
+                                    child: Wrap(children: <Widget>[
+                                      Image.network(listaRomance[index].image),
+                                      ListTile(
+                                        title: Text(
+                                          listaRomance[index].titulo,
+                                          style: TextStyle(fontSize: 20),
+                                        ),
+                                        subtitle: Text(
+                                            listaRomance[index].autor,
+                                            style: TextStyle(fontSize: 16)),
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, "/telacadastro",
+                                              arguments: listaDrama[index].id);
+                                        },
+                                      ),
+                                    ]),
+                                  ),
+                                );
+                              });
+                      }
+                    }),
               ),
               Text(
                 "Terror",
@@ -488,101 +427,52 @@ class _TelaInicialState extends State<TelaInicial> {
               Container(
                 margin: EdgeInsets.symmetric(vertical: 1.0),
                 height: 300.0,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.white,
-                      child: Card(
-                        child: Wrap(
-                          children: <Widget>[
-                            Image.asset("assets/imagens/livro2.jpg"),
-                            ListTile(
-                              title: Text("Harleen"),
-                              subtitle: Text("Autor"),
-                              onTap: () {
-                                Navigator.pushNamed(context, "/telaLivro");
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                child: StreamBuilder<QuerySnapshot>(
+
+                    //fonte de dados
+                    stream: db.collection(colecaoTerror).snapshots(),
+
+                    //exibição dos dados
+                    builder: (context, snapshot) {
+                      switch (snapshot.connectionState) {
+                        case ConnectionState.none:
+                        case ConnectionState.waiting:
+                          return Center(child: CircularProgressIndicator());
+
+                        default:
+                          //documentos retornados do Firebase
+                          List<DocumentSnapshot> docs = snapshot.data.documents;
+                          return ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              //itemCount: docs.length,
+                              itemCount: 10,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  width: 160.0,
+                                  color: Colors.white,
+                                  child: Card(
+                                    child: Wrap(children: <Widget>[
+                                      Image.network(listaTerror[index].image),
+                                      ListTile(
+                                        title: Text(
+                                          listaTerror[index].titulo,
+                                          style: TextStyle(fontSize: 20),
+                                        ),
+                                        subtitle: Text(
+                                            listaTerror[index].autor,
+                                            style: TextStyle(fontSize: 16)),
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, "/telacadastro",
+                                              arguments: listaDrama[index].id);
+                                        },
+                                      ),
+                                    ]),
+                                  ),
+                                );
+                              });
+                      }
+                    }),
               ),
             ],
           ),
