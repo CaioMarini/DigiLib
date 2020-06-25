@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dialogs/flutter_dialogs.dart';
 import '../model/Recomendacao.dart';
-import 'telaCadastro.dart';
+
 
 
 class TelaRecomendacao extends StatefulWidget {
@@ -17,6 +17,7 @@ class _TelaRecomendacaoState extends State<TelaRecomendacao> {
   final db = Firestore.instance;
   final String colecao = "recomendacoes";
   final String usuario = "logins";
+  String idDocumento;
   bool recomendacaoControl = false;
   int count = 0;
 
@@ -64,7 +65,7 @@ class _TelaRecomendacaoState extends State<TelaRecomendacao> {
 
   @override
   Widget build(BuildContext context) {
-    final String idDocumento = ModalRoute.of(context).settings.arguments;
+    idDocumento = ModalRoute.of(context).settings.arguments;
     List<Recomendar> listaUsuario = List();
     if(!recomendacaoControl){
       int i = 0;
@@ -146,14 +147,11 @@ class _TelaRecomendacaoState extends State<TelaRecomendacao> {
                         trailing: IconButton(
                             icon: Icon(Icons.delete),
                             onPressed: () {
-                              _deletar(context, docs[index], index);
+                              _deletar(context, listaUsuario[index], index);
                             }
                           ),
                         onTap: () {
-                          Navigator.pushNamed(
-                            context, 
-                            "/telacadastro", 
-                            arguments: listaLogins[index].id);
+                          Navigator.pushNamed(context,  "/telaEditarRecomendacao", arguments: [listaUsuario[index].id, idDocumento]);
                         },
                       );
                     }
@@ -170,6 +168,9 @@ class _TelaRecomendacaoState extends State<TelaRecomendacao> {
                         ),
                         subtitle: Text(lista[index].descricao + "\nPor: " + lista[index].usuario,
                             style: TextStyle(fontSize: 16)),
+                        onTap: () {
+                          Navigator.pushNamed(context,  "/telaEditarRecomendacao", arguments: [lista[index].id, null]);
+                        },
                       );
                     }
                 );
@@ -184,7 +185,7 @@ class _TelaRecomendacaoState extends State<TelaRecomendacao> {
         elevation: 0,
         child: Icon(Icons.add),
         onPressed: () {
-          Navigator.pushNamed(context, "/cadastro", arguments: null);
+          Navigator.pushNamed(context,  "/telaEditarRecomendacao", arguments: [null, idDocumento]);
         },
       ),
       backgroundColor: Colors.brown[50],
@@ -192,7 +193,7 @@ class _TelaRecomendacaoState extends State<TelaRecomendacao> {
   }
 
   //deletar item
-  void _deletar(BuildContext context, DocumentSnapshot doc, int posicao) {
+  void _deletar(BuildContext context, Recomendar doc, int posicao) {
     showPlatformDialog(
       context: context,
       builder: (_) => BasicDialogAlert(
@@ -203,7 +204,7 @@ class _TelaRecomendacaoState extends State<TelaRecomendacao> {
             onPressed: () {
               
               //deletar o item no Firebase
-              db.collection(colecao).document(doc.documentID).delete();
+              db.collection(colecao).document(doc.id).delete();
 
               //atualizar a lista
               setState(() {

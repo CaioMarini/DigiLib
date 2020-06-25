@@ -83,7 +83,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
 
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric( horizontal: 50),
+        padding: EdgeInsets.symmetric( horizontal: 100),
           decoration: BoxDecoration(
             
             image: DecorationImage(
@@ -111,7 +111,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
                   ),
                 ),
                 Image.asset('assets/imagens/backless.png', scale: 1.859),
-                SizedBox(height: 55),
+                SizedBox(height: 20),
                 TextField(
                   enabled: _emailControl,
                   controller: txtEmail,
@@ -154,127 +154,122 @@ class _TelaCadastroState extends State<TelaCadastro> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 130,
-                      child: RaisedButton(
-                        color: Colors.white,
-                        child: Text(
-                          'Salvar',
-                          style: TextStyle(height: 1.5, fontSize: 22),
-                        ),
-                        onPressed: () {
-                          _emailValidate = false;
-                          _usuarioValidate = false;
-                          _senhaValidate = false;
-                            if (idDocumento == null){
-                              int i = 0;
-                                while(i < lista.length){
-                                  if(lista[i].email == txtEmail.text){
-                                    setState(() {
-                                      _emailValidate = true;
-                                      emailErrorControl = "Email já cadastrado";
-                                    });                  
-                                  }
-
-                                  if(lista[i].usuario == txtUsuario.text){
-                                    setState(() {
-                                      _usuarioValidate = true;
-                                      usuarioErrorControl = "Usuario já cadastrado";
-                                    });
-                                  }
-                                  i = i + 1;
-                                }
-                              if(txtEmail.text == ""|| txtSenha.text == "" || txtUsuario.text == "" 
-                              || _emailValidate || _usuarioValidate){
-                                
-                                
-                                if(txtEmail.text == ""|| !txtEmail.text.contains("@")){
-                                  setState(() {
-                                    _emailValidate = true;
-                                    emailErrorControl = "Email inválido";
-                                  });
-                                }
-                                
-                                if(txtUsuario.text ==""){
-                                  setState(() {
-                                    _usuarioValidate = true;
-                                    usuarioErrorControl = "Campo não pode ser vazio";
-                                  });
-                                }
-                                
-                                if(txtSenha.text == ""){
-                                  setState(() {
-                                    _senhaValidate = true;
-                                  });
-                                }
-                                
-                                
-                              }
-                              else{
-                                inserir(context,Cadastrar(idDocumento, txtEmail.text, txtUsuario.text, txtSenha.text));
-                              }
-                              
-
-                            }
-                            else{
-                              int i = 0;
-                                while(i < lista.length){
-                                  if(lista[i].usuario == txtUsuario.text){
-                                    setState(() {
-                                      _usuarioValidate = true;
-                                      usuarioErrorControl = "Usuario já cadastrado";
-                                    });
-                                  }
-                                  i = i + 1;
-                                }
-                              if(txtSenha.text == "" || txtUsuario.text == "" || _usuarioValidate){
-                                
-                                
-                               if(txtUsuario.text ==""){
-                                  setState(() {
-                                    _usuarioValidate = true;
-                                    usuarioErrorControl = "Campo não pode ser vazio";
-                                  });
-                                }
-                                
-                                if(txtSenha.text == ""){
-                                  setState(() {
-                                    _senhaValidate = true;
-                                  });
-                                }
-                                
-                                
-                              }
-                              else{
-                                atualizar(context,Cadastrar(idDocumento, txtEmail.text, txtUsuario.text, txtSenha.text));
-                              }
-                              
-
-                            }
-                            }
-                      ),
+                SizedBox(
+                  width: 130,
+                  child: RaisedButton(
+                    color: Colors.white,
+                    child: Text(
+                      'Salvar',
+                      style: TextStyle(height: 1.5, fontSize: 22),
                     ),
-                    SizedBox(
-                      width: 30,
+                    onPressed: () {
+                      _emailValidate = false;
+                      _usuarioValidate = false;
+                      _senhaValidate = false;
+                        if (idDocumento == null){
+                          int i = 0;
+                            while(i < lista.length){
+                              if(lista[i].email == txtEmail.text){
+                                setState(() {
+                                  _emailValidate = true;
+                                  emailErrorControl = "Email já cadastrado";
+                                });                  
+                              }
+
+                              if(lista[i].usuario == txtUsuario.text){
+                                setState(() {
+                                  _usuarioValidate = true;
+                                  usuarioErrorControl = "Usuario já cadastrado";
+                                });
+                              }
+                              i = i + 1;
+                            }
+                          if(txtEmail.text == ""|| txtSenha.text == "" || txtUsuario.text == "" 
+                          || _emailValidate || _usuarioValidate){
+                            
+                            
+                            if(txtEmail.text == ""|| !txtEmail.text.contains("@")){
+                              setState(() {
+                                _emailValidate = true;
+                                emailErrorControl = "Email inválido";
+                              });
+                            }
+                            
+                            if(txtUsuario.text ==""){
+                              setState(() {
+                                _usuarioValidate = true;
+                                usuarioErrorControl = "Campo não pode ser vazio";
+                              });
+                            }
+                            
+                            if(txtSenha.text == ""){
+                              setState(() {
+                                _senhaValidate = true;
+                              });
+                            }
+                            
+                            
+                          }
+                          else{
+                            inserir(context,Cadastrar(idDocumento, txtEmail.text, txtUsuario.text, txtSenha.text));
+                          }
+                          
+
+                        }
+                        else{
+                          int i = 0;
+                            while(i < lista.length){
+                              if(lista[i].usuario == txtUsuario.text){
+                                setState(() {
+                                  _usuarioValidate = true;
+                                  usuarioErrorControl = "Usuario já cadastrado";
+                                });
+                              }
+                              i = i + 1;
+                            }
+                          if(txtSenha.text == "" || txtUsuario.text == "" || _usuarioValidate){
+                            
+                            
+                            if(txtUsuario.text ==""){
+                              setState(() {
+                                _usuarioValidate = true;
+                                usuarioErrorControl = "Campo não pode ser vazio";
+                              });
+                            }
+                            
+                            if(txtSenha.text == ""){
+                              setState(() {
+                                _senhaValidate = true;
+                              });
+                            }
+                            
+                            
+                          }
+                          else{
+                            atualizar(context,Cadastrar(idDocumento, txtEmail.text, txtUsuario.text, txtSenha.text));
+                          }
+                          
+
+                        }
+                        }
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  width: 130,
+                  child: RaisedButton(
+                    color: Colors.white,
+                    child: Text(
+                      'Cancelar',
+                      style: TextStyle(height: 1.5, fontSize: 22),
                     ),
-                    SizedBox(
-                      width: 130,
-                      child: RaisedButton(
-                        color: Colors.white,
-                        child: Text(
-                          'Cancelar',
-                          style: TextStyle(height: 1.5, fontSize: 22),
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ),
-                  ],
-                )
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
               ],
             ),
           ),

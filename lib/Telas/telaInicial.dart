@@ -287,7 +287,7 @@ class _TelaInicialState extends State<TelaInicial> {
                                             style: TextStyle(fontSize: 16)),
                                         onTap: () {
                                           Navigator.pushNamed(
-                                              context, "/telacadastro",
+                                              context, "/telaLivro",
                                               arguments: listaAven[index].id);
                                         },
                                       ),
@@ -345,7 +345,7 @@ class _TelaInicialState extends State<TelaInicial> {
                                             style: TextStyle(fontSize: 16)),
                                         onTap: () {
                                           Navigator.pushNamed(
-                                              context, "/telacadastro",
+                                              context, "/telaLivro",
                                               arguments: listaDrama[index].id);
                                         },
                                       ),
@@ -404,8 +404,8 @@ class _TelaInicialState extends State<TelaInicial> {
                                             style: TextStyle(fontSize: 16)),
                                         onTap: () {
                                           Navigator.pushNamed(
-                                              context, "/telacadastro",
-                                              arguments: listaDrama[index].id);
+                                              context, "/telaLivro",
+                                              arguments: listaRomance[index].id);
                                         },
                                       ),
                                     ]),
@@ -452,6 +452,7 @@ class _TelaInicialState extends State<TelaInicial> {
                                   color: Colors.white,
                                   child: Card(
                                     child: Wrap(children: <Widget>[
+                                      
                                       Image.network(listaTerror[index].image),
                                       ListTile(
                                         title: Text(
@@ -463,8 +464,8 @@ class _TelaInicialState extends State<TelaInicial> {
                                             style: TextStyle(fontSize: 16)),
                                         onTap: () {
                                           Navigator.pushNamed(
-                                              context, "/telacadastro",
-                                              arguments: listaDrama[index].id);
+                                              context, "/telaLivro",
+                                              arguments: listaTerror[index].id);
                                         },
                                       ),
                                     ]),

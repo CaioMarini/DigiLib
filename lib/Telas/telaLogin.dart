@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:app_livraria/model/Cadastro.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dialogs/flutter_dialogs.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 void main() => runApp(TelaLogin());
@@ -107,86 +106,80 @@ class _TelaLoginState extends State<TelaLogin> {
                       hintText: 'Password'),
                 ),
                 SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 130,
-                      child: ButtonTheme(
-                        minWidth: 200.0,
-                        height: 40.0,
-                        child: RaisedButton(
-                          color: Colors.white,
-                          child: Text(
-                            'Login',
-                            style: TextStyle(height: 1.5, fontSize: 22),
-                          ),
-                          onPressed: () {
-                            loginValidation = false;
-                            int i = 0;
-                            while(i < lista.length){
-                              if(lista[i].usuario == txtUsuario.text && lista[i].senha == txtSenha.text){
-                                loginValidation = true;
-                                index = i;
-                              }
-                              i = i + 1;
-                            }
-
-
-                            if(loginValidation){
-                              Navigator.pushNamed(context, "/telaInicial",arguments: lista[index].id);
-                            }
-                            else{
-                              
-                              Alert(
-                              context: context,
-                              title: "Alerta!!",
-                              desc: "Usuario ou senha invalidos",
-                              image: Image.asset('assets/imagens/backless.png',
-                                  scale: 4),
-                              buttons: [
-                                DialogButton(
-                                  child: Text(
-                                    "OK",
-                                    style:
-                                        TextStyle(color: Colors.white, fontSize: 20),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                    
-                                  },
-                                  width: 120,
-                                )
-                              ],
-                            ).show();
-                            }
-                            
-                          },
-                        ),
-                      ),
-                  ),
                   SizedBox(
-                      width: 20,
-                    ),
-                  SizedBox(
-                      width: 130,
-                      child: ButtonTheme(
+                    width: 130,
+                    child: ButtonTheme(
                       minWidth: 200.0,
                       height: 40.0,
                       child: RaisedButton(
                         color: Colors.white,
                         child: Text(
-                          'Cadastrar',
+                          'Login',
                           style: TextStyle(height: 1.5, fontSize: 22),
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, "/telaCadastro");
+                          loginValidation = false;
+                          int i = 0;
+                          while(i < lista.length){
+                            if(lista[i].usuario == txtUsuario.text && lista[i].senha == txtSenha.text){
+                              loginValidation = true;
+                              index = i;
+                            }
+                            i = i + 1;
+                          }
+
+
+                          if(loginValidation){
+                            Navigator.pushNamed(context, "/telaInicial",arguments: lista[index].id);
+                          }
+                          else{
+                            
+                            Alert(
+                            context: context,
+                            title: "Alerta!!",
+                            desc: "Usuario ou senha invalidos",
+                            image: Image.asset('assets/imagens/backless.png',
+                                scale: 4),
+                            buttons: [
+                              DialogButton(
+                                child: Text(
+                                  "OK",
+                                  style:
+                                      TextStyle(color: Colors.white, fontSize: 20),
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                  
+                                },
+                                width: 120,
+                              )
+                            ],
+                          ).show();
+                          }
+                          
                         },
                       ),
                     ),
+                ),
+                SizedBox(
+                    height: 20,
                   ),
-
-                  ]
+                SizedBox(
+                    width: 130,
+                    child: ButtonTheme(
+                    minWidth: 200.0,
+                    height: 40.0,
+                    child: RaisedButton(
+                      color: Colors.white,
+                      child: Text(
+                        'Cadastrar',
+                        style: TextStyle(height: 1.5, fontSize: 22),
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/telaCadastro");
+                      },
+                    ),
+                  ),
                 ),
               ],
             )),
@@ -195,38 +188,4 @@ class _TelaLoginState extends State<TelaLogin> {
       ),
     );
   }
-
-  void _deletar(BuildContext context, DocumentSnapshot doc, int posicao) {
-    showPlatformDialog(
-      context: context,
-      builder: (_) => BasicDialogAlert(
-        title: Text("Tem certeza que deseja excluir?"),
-        actions: <Widget>[
-          BasicDialogAction(
-            title: Text("Sim"),
-            onPressed: () {
-              
-              //deletar o item no Firebase
-              db.collection(colecao).document(doc.documentID).delete();
-
-              //atualizar a lista
-              setState(() {
-                lista.removeAt(posicao);
-              });
-              Navigator.pop(context);
-
-            },
-          ),
-          BasicDialogAction(
-            title: Text("Não"),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ],
-      ),
-    );
-  }
-
-
 }

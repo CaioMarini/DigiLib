@@ -1,51 +1,8 @@
-import 'package:app_livraria/model/Aventura.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class TelaLivro extends StatefulWidget {
-  @override
-  _TelaLivroState createState() => _TelaLivroState();
-}
-
-class _TelaLivroState extends State<TelaLivro> {
- 
-//Image.network(listaTerror[index].image),
-
-
-final String colecao = "aventura";
-
-List<Aventura> listaAven = List();
-
-
-
-Text txtTituilo = Text("");
-Text txtAutor = Text("");
-Text txtSinopse = Text("");
-Image image = Image.network("");
-
-
-//Instancia do Firebase
-var db = Firestore.instance;
-
-void getDocumento(String idDocumento) async{
-  //Recuperar o documento no Firestore
-  DocumentSnapshot doc = 
-      await db.collection("aventura").document(idDocumento).get();
-
-      setState(() {
-      
-    });
-
-    }
-
-
-
-
+class TelaLivro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-    final String idDocumento = ModalRoute.of(context).settings.arguments;
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -87,11 +44,7 @@ void getDocumento(String idDocumento) async{
                           height: MediaQuery.of(context).size.height / 2.3,
                           width: MediaQuery.of(context).size.width / 2.3,
                           
-                          //Image.network(listaTerror[index].image),
-                         child: Image.asset("assets/imagens/livro2.jpg"),
-                          //child: Image.network(listaAv[index].image)
-
-
+                          child: Image.asset("assets/imagens/livro2.jpg"),
                         ),
                       ),
                     ],
@@ -101,7 +54,7 @@ void getDocumento(String idDocumento) async{
                   children: <Widget>[
                     Expanded(
                       child: Text(
-                       'txtAutor',
+                        "Harleen",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.black,
@@ -116,11 +69,7 @@ void getDocumento(String idDocumento) async{
                   children: <Widget>[
                     Expanded(
                       child: Text(
-
-
                         "Autor",
-
-
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.black,
@@ -136,8 +85,6 @@ void getDocumento(String idDocumento) async{
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.all(2.0),
-
-
                         child: Text(
                           "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                           "massa libero. Sed nec massa pulvinar tortor scelerisque viverra. "
@@ -180,8 +127,4 @@ void getDocumento(String idDocumento) async{
       ),
     );
   }
-
-      
-    
-  
 }
