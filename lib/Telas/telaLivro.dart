@@ -1,6 +1,5 @@
-import 'package:app_livraria/model/Aventura.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import '../model/Livro.dart';
 
 class TelaLivro extends StatefulWidget {
   @override
@@ -8,44 +7,20 @@ class TelaLivro extends StatefulWidget {
 }
 
 class _TelaLivroState extends State<TelaLivro> {
- 
-//Image.network(listaTerror[index].image),
-
-
-final String colecao = "aventura";
-
-List<Aventura> listaAven = List();
-
-
-
-Text txtTituilo = Text("");
-Text txtAutor = Text("");
-Text txtSinopse = Text("");
-Image image = Image.network("");
-
-
-//Instancia do Firebase
-var db = Firestore.instance;
-
-void getDocumento(String idDocumento) async{
-  //Recuperar o documento no Firestore
-  DocumentSnapshot doc = 
-      await db.collection("aventura").document(idDocumento).get();
-
-      setState(() {
-      
-    });
-
-    }
-
-
-
+  String sinopse = "";
+  String titulo = "";
+  String autor = "";
+  String imagem = "";
+  String pdf = "";
 
   @override
   Widget build(BuildContext context) {
-
-    final String idDocumento = ModalRoute.of(context).settings.arguments;
-
+    final Livro livro = ModalRoute.of(context).settings.arguments;
+    sinopse = livro.sinopse;
+    titulo = livro.titulo;
+    autor = livro.autor;
+    imagem = livro.image;
+    pdf = livro.pdf;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -86,12 +61,7 @@ void getDocumento(String idDocumento) async{
                         child: Container(
                           height: MediaQuery.of(context).size.height / 2.3,
                           width: MediaQuery.of(context).size.width / 2.3,
-                          
-                          //Image.network(listaTerror[index].image),
-                         child: Image.asset("assets/imagens/livro2.jpg"),
-                          //child: Image.network(listaAv[index].image)
-
-
+                          child: Image.network(imagem),
                         ),
                       ),
                     ],
@@ -101,7 +71,7 @@ void getDocumento(String idDocumento) async{
                   children: <Widget>[
                     Expanded(
                       child: Text(
-                       'txtAutor',
+                        titulo,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.black,
@@ -116,11 +86,7 @@ void getDocumento(String idDocumento) async{
                   children: <Widget>[
                     Expanded(
                       child: Text(
-
-
-                        "Autor",
-
-
+                        autor,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.black,
@@ -136,15 +102,8 @@ void getDocumento(String idDocumento) async{
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.all(2.0),
-
-
                         child: Text(
-                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                          "massa libero. Sed nec massa pulvinar tortor scelerisque viverra. "
-                          "Sed pulvinar nisl sit amet velit varius vestibulum. In et sapien turpis. "
-                          "Mauris quis arcu eu eros ornare hendrerit sit amet nec nisi. Curabitur vestibulum "
-                          "libero et magna ultricies maximus. Maecenas et lobortis felis. Nam feugiat felis "
-                          "ac blandit gravida.",
+                          sinopse,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.black,
@@ -169,8 +128,7 @@ void getDocumento(String idDocumento) async{
                         fontWeight: FontWeight.bold),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, "/telaLeitura");
-                    
+                    Navigator.pushNamed(context, "/telaLeitura",arguments: pdf);
                   },
                 ),
               ],
@@ -180,8 +138,4 @@ void getDocumento(String idDocumento) async{
       ),
     );
   }
-
-      
-    
-  
 }

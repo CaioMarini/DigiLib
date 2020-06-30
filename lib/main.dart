@@ -1,5 +1,3 @@
-
-import 'package:app_livraria/Telas/telaLivro.dart';
 import 'package:flutter/material.dart';
 import 'Telas/telaCadastro.dart';
 import 'Telas/telaLogin.dart';
@@ -8,6 +6,7 @@ import 'Telas/telaInicial.dart';
 import 'Telas/telaRecomendacao.dart';
 import 'Telas/telaEditarRecomendacao.dart';
 import 'Telas/telaLeituraLivro.dart';
+import 'Telas/telaLivro.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -23,7 +22,7 @@ void main() {
       routes: {
         "/telaInfo": (context) => TelaInformacao(),
         "/telaInicial": (context) => TelaInicial(),
-        "/telaLivro" : (context) => TelaLivro(),
+        "/telaLivro": (context) => TelaLivro(),
         "/telaLeitura": (context) => OpenBooks(),
         "/telaLogin": (context) => TelaLogin(),
         "/telaCadastro": (context) => TelaCadastro(),
