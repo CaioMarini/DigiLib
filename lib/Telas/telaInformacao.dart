@@ -83,8 +83,8 @@ class TelaInformacao extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       child: Text(
-                        "A DigLib tem o objetvo de ser uma biblioteca online,"
-                        " na qual é possivel ler diversos livros sem sair do comforto da sua casa ",
+                        "A DigLib tem o objetivo de ser uma biblioteca online,"
+                        " na qual é possivel ler diversos livros sem sair do conforto da sua casa ",
                         textAlign: TextAlign.justify,
                         style: TextStyle(
                             color: Colors.black,
