@@ -1,4 +1,4 @@
-O aplicativo DigiLib foi criado para a disciplina de novas tecnologias da informação, com o intuito de criar um projeto que possibilitasse a leitura de livros em qualquer lugar.
+O aplicativo DigiLib foi criado para a disciplina de novas tecnologias da informação, com o intuito de criar um projeto que possibilitasse a leitura de livros em um aparelho mobile.
 
 
 
